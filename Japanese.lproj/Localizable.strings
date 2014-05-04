@@ -1,0 +1,17 @@
+"Show Status Window" = "ステータスウインドウを表示";
+"Hide Status Window" = "ステータスウインドウを隠す";
+"Show DiskGraph Window" = "ディスク消費グラフを表示";
+"Hide DiskGraph Window" = "ディスク消費グラフを隠す";
+
+"GDF_REST" = "あと%.f日 (%.f%@B/日)";
+
+"LDE Message" = "組み込みのパターン定義が読み込めませんでした。";
+"LDE Info" = "";
+"Terminate" = "終了";
+
+"OpenErr Message" = "パターン定義ファイルの形式が正しくないため開けませんでした。";
+"OpenErr Info" = "ファイル “%@” は壊れている可能性があります。";
+"OK" = "OK";
+
+"FileMissing Message" = "ファイルが見つからなかったため開けませんでした。";
+"FileMissing Info" = "ファイル “%@” は存在しませんでした。もう一度ファイルに対して開く操作を行ってください。";
