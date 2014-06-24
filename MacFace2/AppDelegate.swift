@@ -9,17 +9,36 @@
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-                            
-
+    
+    var statsHistory: StatsHistory!
+    var updateTimer: NSTimer!
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        // Insert code here to initialize your application
+        statsHistory = StatsHistory()
+        
+        updateTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target:self, selector:Selector("updateStatus:"),
+            userInfo:nil, repeats:true
+        )
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
-        // Insert code here to tear down your application
+        updateTimer.invalidate()
     }
 
-
+    func updateStatus(timer:NSTimer)
+    {
+        var history = statsHistory as StatsHistory
+        statsHistory.update()
+        
+        var curRecord = statsHistory.currentRecord()
+        print(curRecord.totalFactor.user)
+        print(" [")
+        for factor in curRecord.processorFactors
+        {
+            print("\(factor.user) ")
+        }
+        print("]")
+    }
 }
 
