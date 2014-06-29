@@ -26,6 +26,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updateTimer.invalidate()
     }
 
+    func applicationDidChangeOcclusionState(aNotification: NSNotification)
+    {
+        if NSApp.occlusionState & NSApplicationOcclusionState.Visible {
+            // the app is visible; continue doing work
+            NSLog("Visible")
+        } else {
+            // the app is not visible; stop doing work }
+            NSLog("Invisible")
+        }
+    }
+
     func updateStatus(timer:NSTimer)
     {
         var history = statsHistory as StatsHistory

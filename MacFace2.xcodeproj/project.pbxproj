@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5904CDAA1960078B005FD039 /* FaceDefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5904CDA91960078B005FD039 /* FaceDefTests.swift */; };
+		5904CDAC19600865005FD039 /* default.mcface in Resources */ = {isa = PBXBuildFile; fileRef = 5904CDAB19600865005FD039 /* default.mcface */; };
+		5904CDAD19600865005FD039 /* default.mcface in Resources */ = {isa = PBXBuildFile; fileRef = 5904CDAB19600865005FD039 /* default.mcface */; };
+		594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
+		594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
 		594C3D72194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
 		594C3D73194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
 		5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
@@ -21,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5904CDAE19601206005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
 		5997EB5F194369A30047B05A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5997EB42194369A20047B05A /* Project object */;
@@ -31,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5904CDA91960078B005FD039 /* FaceDefTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDefTests.swift; sourceTree = "<group>"; };
+		5904CDAB19600865005FD039 /* default.mcface */ = {isa = PBXFileReference; lastKnownFileType = folder; path = default.mcface; sourceTree = "<group>"; };
+		594A4DEB195F0CF1001FE16D /* FaceDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDef.swift; sourceTree = "<group>"; };
 		594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MacFace2.entitlements; sourceTree = "<group>"; };
 		594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacFace2-Bridging-Header.h"; sourceTree = "<group>"; };
 		594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacFace2Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,6 +104,7 @@
 		5997EB4C194369A20047B05A /* MacFace2 */ = {
 			isa = PBXGroup;
 			children = (
+				5904CDAB19600865005FD039 /* default.mcface */,
 				594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */,
 				5997EB51194369A20047B05A /* ViewController.swift */,
 				5997EB53194369A20047B05A /* AppDelegate.swift */,
@@ -100,6 +116,7 @@
 				594C3D71194D96A700E2627C /* HostStatistics.m */,
 				594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */,
 				5991EB011956BE0200566B8D /* StatsHistory.swift */,
+				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
 			);
 			path = MacFace2;
 			sourceTree = "<group>";
@@ -119,6 +136,7 @@
 				5997EB64194369A30047B05A /* HostStatistics.swift */,
 				5991EB061956CF8100566B8D /* StatsHistory.swift */,
 				5997EB62194369A30047B05A /* Supporting Files */,
+				5904CDA91960078B005FD039 /* FaceDefTests.swift */,
 			);
 			path = MacFace2Tests;
 			sourceTree = "<group>";
@@ -163,6 +181,7 @@
 			);
 			dependencies = (
 				5997EB60194369A30047B05A /* PBXTargetDependency */,
+				5904CDAF19601206005FD039 /* PBXTargetDependency */,
 			);
 			name = MacFace2Tests;
 			productName = MacFace2Tests;
@@ -182,7 +201,7 @@
 						CreatedOnToolsVersion = 6.0;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -216,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5904CDAC19600865005FD039 /* default.mcface in Resources */,
 				5997EB56194369A20047B05A /* Images.xcassets in Resources */,
 				5997EB59194369A20047B05A /* Main.storyboard in Resources */,
 			);
@@ -225,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5904CDAD19600865005FD039 /* default.mcface in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +260,7 @@
 				5997EB52194369A20047B05A /* ViewController.swift in Sources */,
 				594C3D72194D96A700E2627C /* HostStatistics.m in Sources */,
 				5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */,
+				594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */,
 				5997EB50194369A20047B05A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +271,8 @@
 			files = (
 				5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */,
 				5997EB65194369A30047B05A /* HostStatistics.swift in Sources */,
+				5904CDAA1960078B005FD039 /* FaceDefTests.swift in Sources */,
+				594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */,
 				5991EB071956CF8100566B8D /* StatsHistory.swift in Sources */,
 				594C3D73194D96A700E2627C /* HostStatistics.m in Sources */,
 			);
@@ -257,6 +281,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5904CDAF19601206005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDAE19601206005FD039 /* PBXContainerItemProxy */;
+		};
 		5997EB60194369A30047B05A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5997EB49194369A20047B05A /* MacFace2 */;
@@ -357,7 +386,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MacFace2/MacFace2.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MacFace2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -371,7 +399,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MacFace2/MacFace2.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MacFace2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
