@@ -59,11 +59,6 @@ class FaceDefInfo
 
 let FACE_ROWMAX  = 3
 let FACE_COLMAX  = 11
-let FACE_PATMAX  = 8
-let FACE_IMGW	 = 128
-let FACE_IMGH	 = 128
-let FACE_IMGSIZE = NSMakeSize(128,128)
-
 
 //
 let FACE_INFO_TITLE		= "title"
@@ -204,11 +199,14 @@ class FaceDef
 
     //@lazy var info : FaceDefInfo = FaceDef.infoAtPath(self.packagePath)
 
+    let imageSize = NSSize(width:128, height:128)
+    let imageRect = NSRect(x:0, y:0, width:128, height:128)
+    
     func imageOf(row:Int, col:Int, marker:MarkerSpecifier) -> NSImage
     {
-        var image = NSImage(size: FACE_IMGSIZE)
+        var image = NSImage(size: imageSize)
         image.lockFocus()
-        drawImage(row, col: col, marker: marker, point: NSPoint(x:0.0, y:0.0))
+        drawImage(row, col: col, marker: marker, point: NSZeroPoint)
         image.unlockFocus()
         return image
     }
@@ -237,10 +235,12 @@ class FaceDef
     func dumpPattern(path:String)
     {
         var rows = parts.count / FACE_COLMAX + 1;
-        var offset = rows * FACE_IMGW + 10;
-        var imgSize = NSSize(width:FACE_IMGW * FACE_COLMAX, height:FACE_IMGH * FACE_ROWMAX + offset + 14)
-        
-        var img = NSImage(size:imgSize)
+        var patternSize = self.imageSize
+
+        var offset = CGFloat(rows) * patternSize.width + 10.0;
+        var imageSize = NSSize(width:patternSize.width * CGFloat(FACE_COLMAX), height:patternSize.height * CGFloat(FACE_ROWMAX) + offset + 14)
+
+        var img = NSImage(size:imageSize)
         if img == nil {
             NSLog("failure dump pattern!")
             return;
@@ -249,48 +249,47 @@ class FaceDef
         img.lockFocus()
 
         NSColor.whiteColor().set()
-
-        NSRectFill(NSRect(x:0, y:0, width:imgSize.width, height:imgSize.height))
+        NSRectFill(NSRect(x:0, y:0, width:imageSize.width, height:imageSize.height))
         
         NSColor.blackColor().set()
-        NSRectFill(NSRect(x:0, y: CGFloat(offset - 6), width:imgSize.width, height:2))
-        
+        NSRectFill(NSRect(x:0, y: offset - 6, width:imageSize.width, height:2))
+
         var attr = [
             NSFontAttributeName: NSFont.systemFontOfSize(14.0),
             NSForegroundColorAttributeName: NSColor.blackColor(),
         ]
         
         for var i = 0; i < parts.count; i++ {
-            var x = (i % FACE_COLMAX) * FACE_IMGW;
-            var y = (rows-1 - i / FACE_COLMAX) * FACE_IMGH;
+            var x = CGFloat(i % FACE_COLMAX) * patternSize.width
+            var y = CGFloat(rows-1 - i / FACE_COLMAX) * patternSize.height
             drawPart(parts[i], point:NSPoint(x:x, y:y))
 
             NSColor.lightGrayColor().set()
-            NSFrameRect(NSRect(x:x, y:y, width:FACE_IMGW, height:FACE_IMGH));
+            NSFrameRect(NSRect(x:x, y:y, width:patternSize.width, height:patternSize.height))
             
             NSColor.blackColor().set()
             var str = NSString(format:"%d", i)
-            x = (i % FACE_COLMAX) * FACE_IMGW;
-            y = (rows-1 - i / FACE_COLMAX) * FACE_IMGH + FACE_IMGH - 12;
+            x = CGFloat(i % FACE_COLMAX) * patternSize.width
+            y = CGFloat(rows-1 - i / FACE_COLMAX) * patternSize.height + patternSize.height - 12
             str.drawAtPoint(NSPoint(x:x, y:y), withAttributes:attr)
         }
         
         for var i = 0; i < FACE_ROWMAX; i++ {
-            let y = (FACE_ROWMAX-1 - i) * FACE_IMGH + offset;
+            let y = CGFloat(FACE_ROWMAX-1 - i) * patternSize.height + offset
             for var j=0; j<FACE_COLMAX; j++ {
-                let x = j * FACE_IMGW;
+                let x = CGFloat(j) * patternSize.width;
                 drawImage(i, col:j, marker:MarkerSpecifier.None, point:NSPoint(x:x, y:y))
             }
         }
         
-        var y = CGFloat(imgSize.height - 14);
+        var y = imageSize.height - 14
         for var i = 0; i < FACE_COLMAX-1; i++ {
             var str = NSString(format:"%d-%d%%", i*10, (i+1)*10-1)
-            var x = CGFloat(i * FACE_IMGW);
+            var x = CGFloat(i) * patternSize.width;
             str.drawAtPoint(NSPoint(x:x, y:y), withAttributes:attr)
         }
         var str = NSString(format:"%d%%", 100)
-        var x = CGFloat((FACE_COLMAX-1) * FACE_IMGW);
+        var x = CGFloat(FACE_COLMAX-1) * patternSize.width
         str.drawAtPoint(NSPoint(x:x, y:y), withAttributes:attr)
         
         img.unlockFocus()
