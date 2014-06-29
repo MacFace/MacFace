@@ -24,7 +24,20 @@ class PartDef
 }
 
 typealias PatternDef = Array<Int>
-typealias MarkerSpecifier = UInt16
+
+struct MarkerSpecifier : RawOptionSet {
+    var value: UInt = 0
+    init(_ value: UInt) { self.value = value }
+    func toRaw() -> UInt { return self.value }
+    func getLogicValue() -> Bool { return self.value != 0 }
+
+    static func fromRaw(raw: UInt) -> MarkerSpecifier? { return MarkerSpecifier(raw) }
+    static func fromMask(raw: UInt) -> MarkerSpecifier { return MarkerSpecifier(raw) }
+
+    static var None: MarkerSpecifier  { return MarkerSpecifier(0) }
+    static var Pagein: MarkerSpecifier  { return MarkerSpecifier(1 << 0) }
+    static var Pageout: MarkerSpecifier { return MarkerSpecifier(1 << 1) }
+}
 
 class FaceDefInfo
 {
@@ -47,26 +60,23 @@ class FaceDefInfo
 let FACE_ROWMAX  = 3
 let FACE_COLMAX  = 11
 let FACE_PATMAX  = 8
-let FACE_IMGW	= 128
-let FACE_IMGH	= 128
+let FACE_IMGW	 = 128
+let FACE_IMGH	 = 128
 let FACE_IMGSIZE = NSMakeSize(128,128)
 
-// マーカービットマスク
-let FDMARKER_PAGEIN   = 0x0001
-let FDMARKER_PAGEOUT  = 0x0002
 
 //
 let FACE_INFO_TITLE		= "title"
-let FACE_INFO_AUTHOR      = "author"
-let FACE_INFO_VERSION     = "version"
+let FACE_INFO_AUTHOR    = "author"
+let FACE_INFO_VERSION   = "version"
 let FACE_INFO_SITE_URL	= "web site"
 
-let FACE_INFO_PARTS		= "parts"
-let FACE_INFO_PATTERN     = "pattern"
-let FACE_INFO_MARKER      = "markers"
+let FACE_INFO_PARTS		    = "parts"
+let FACE_INFO_PATTERN       = "pattern"
+let FACE_INFO_MARKER        = "markers"
 let FACE_INFO_TITLE_PATTERN = "title pattern"
 let FACE_INFO_MARK_PGOUT	= "pagein pattern"
-let FACE_INFO_MARK_PGIN	= "pageout pattern"
+let FACE_INFO_MARK_PGIN	    = "pageout pattern"
 
 let FACE_PART_IMAGE		= "filename"
 let FACE_PART_POSX		= "pos x"
@@ -194,7 +204,7 @@ class FaceDef
 
     //@lazy var info : FaceDefInfo = FaceDef.infoAtPath(self.packagePath)
 
-    func imageOf(row:Int, col:Int, marker:UInt8) -> NSImage
+    func imageOf(row:Int, col:Int, marker:MarkerSpecifier) -> NSImage
     {
         var image = NSImage(size: FACE_IMGSIZE)
         image.lockFocus()
@@ -203,15 +213,15 @@ class FaceDef
         return image
     }
 
-    func drawImage(row:Int, col:Int, marker:UInt8, point:NSPoint)
+    func drawImage(row:Int, col:Int, marker:MarkerSpecifier, point:NSPoint)
     {
         for part in patterns[row][col] {
             drawPart(parts[part], point: point)
         }
         
-        if marker != 0 {
+        if marker != MarkerSpecifier.None {
             for var i = 0; i < 8; i++ {
-                if marker & UInt8(1<<i) != 0 {
+                if marker.toRaw() & UInt(1<<i) != 0 {
                     drawPart(parts[markers[i]], point: point)
                 }
             }
@@ -269,7 +279,7 @@ class FaceDef
             let y = (FACE_ROWMAX-1 - i) * FACE_IMGH + offset;
             for var j=0; j<FACE_COLMAX; j++ {
                 let x = j * FACE_IMGW;
-                drawImage(i, col:j, marker:0, point:NSPoint(x:x, y:y))
+                drawImage(i, col:j, marker:MarkerSpecifier.None, point:NSPoint(x:x, y:y))
             }
         }
         
