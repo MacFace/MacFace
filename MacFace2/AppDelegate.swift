@@ -13,13 +13,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statsHistory: StatsHistory!
     var updateTimer: NSTimer!
 
+    var patternWindowController : PatternWindowController!
+
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         statsHistory = StatsHistory()
+        
+        var path = NSBundle.mainBundle().pathForResource("default", ofType:"mcface")
+        var faceDef = FaceDef(path:path)
+
+        patternWindowController = PatternWindowController(windowNibName:"PatternWindow")
+        patternWindowController.faceImage = FaceImage(faceDef:faceDef)
         
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target:self, selector:Selector("updateStatus:"),
             userInfo:nil, repeats:true
         )
+
+        patternWindowController.showWindow(nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
@@ -43,13 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statsHistory.update()
         
         var curRecord = statsHistory.currentRecord()
-        print(curRecord.totalFactor.user)
-        print(" [")
-        for factor in curRecord.processorFactors
-        {
-            print("\(factor.user) ")
-        }
-        print("]")
+        var totalFactor = curRecord.totalFactor
+
+        patternWindowController.update(curRecord, processorFactor:totalFactor)
     }
 }
 

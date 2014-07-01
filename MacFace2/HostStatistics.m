@@ -14,6 +14,13 @@
 
 - (id)init
 {
+    self.freePages = 0;
+    self.activePages = 0;
+    self.inactivePages = 0;
+    self.wirePages = 0;
+    self.faults = 0;
+    self.pageins = 0;
+    self.pageouts = 0;
     return self;
 }
 
@@ -23,6 +30,10 @@
 
 - (id)init
 {
+    self.user = 0;
+    self.system = 0;
+    self.idle = 0;
+    self.nice = 0;
     return self;
 }
 

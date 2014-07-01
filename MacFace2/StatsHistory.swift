@@ -14,13 +14,18 @@ class ProcessorFactor {
     var idle: Float = 0.0
     var nice: Float = 0.0
 
-    func update(ticks:ProcessorTicks)
+    func update(ticks:ProcessorTicks, lastTicks:ProcessorTicks)
     {
-        var total = Float(ticks.user +  ticks.system + ticks.idle + ticks.nice)
-        self.user = Float(ticks.user) / total
-        self.system = Float(ticks.system) / total
-        self.idle = Float(ticks.idle) / total
-        self.nice = Float(ticks.nice) / total
+        var user   = ticks.user - lastTicks.user
+        var system = ticks.system - lastTicks.system
+        var idle   = ticks.idle - lastTicks.idle
+        var nice   = ticks.nice - lastTicks.nice
+        var total = Float(user + system + idle + nice)
+        
+        self.user   = Float(user) / total
+        self.system = Float(system) / total
+        self.idle   = Float(idle) / total
+        self.nice   = Float(nice) / total
     }
 }
 
@@ -28,7 +33,11 @@ class HistoryRecord {
     var vmStats: VMStatistics
     var pageinDelta: Int
     var pageoutDelta: Int
+
+    var totalTicks: ProcessorTicks
     var totalFactor: ProcessorFactor
+    
+    var processorTicks: ProcessorTicks[]
     var processorFactors: ProcessorFactor[]
     
     init(processorCount:Int)
@@ -36,11 +45,16 @@ class HistoryRecord {
         vmStats = VMStatistics()
         pageinDelta = 0
         pageoutDelta = 0
+
+        totalTicks = ProcessorTicks()
         totalFactor = ProcessorFactor()
+
+        processorTicks = ProcessorTicks[]()
         processorFactors = ProcessorFactor[]()
 
         for i in 0..processorCount
         {
+            processorTicks.append(ProcessorTicks())
             processorFactors.append(ProcessorFactor())
         }
     }
@@ -55,36 +69,42 @@ class StatsHistory {
     init()
     {
         hostStats = HostStatistics()
-        records = HistoryRecord[]()
         processorCount = Int(hostStats.processorCount)
+
+        records = HistoryRecord[]()
+        
+        records.append(createRecord())
     }
 
     func update()
     {
-        var record = HistoryRecord(processorCount: processorCount)
+        var record = createRecord()
+        var lastRecord = currentRecord()
 
-        hostStats.getVMStatistics(record.vmStats)
-
-        var ticks = ProcessorTicks()
-
-        hostStats.getTotalProcessorTicks(ticks)
-        record.totalFactor.update(ticks)
-
-        var ticksList = ProcessorTicks[]()
-        for i in 0..processorCount
-        {
-            ticksList.append(ProcessorTicks())
-        }
-        hostStats.getAllProcessorTicks(ticksList)
+        record.pageinDelta = Int(record.vmStats.pageins - lastRecord.vmStats.pageins)
+        record.pageoutDelta = Int(record.vmStats.pageouts - lastRecord.vmStats.pageouts)
         
+        record.totalFactor.update(record.totalTicks, lastTicks:lastRecord.totalTicks)
+
         for i in 0..processorCount
         {
-            record.processorFactors[i].update(ticksList[i])
+            record.processorFactors[i].update(record.processorTicks[i], lastTicks:lastRecord.processorTicks[i])
         }
 
         records.append(record)
     }
+
+    func createRecord() -> HistoryRecord
+    {
+        var record = HistoryRecord(processorCount: processorCount)
     
+        hostStats.getVMStatistics(record.vmStats)
+        hostStats.getTotalProcessorTicks(record.totalTicks)
+        hostStats.getAllProcessorTicks(record.processorTicks)
+        
+        return record
+    }
+
     func currentRecord() -> HistoryRecord
     {
         return records[records.count - 1]

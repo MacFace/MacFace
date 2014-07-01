@@ -10,6 +10,10 @@
 		5904CDAA1960078B005FD039 /* FaceDefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5904CDA91960078B005FD039 /* FaceDefTests.swift */; };
 		5904CDAC19600865005FD039 /* default.mcface in Resources */ = {isa = PBXBuildFile; fileRef = 5904CDAB19600865005FD039 /* default.mcface */; };
 		5904CDAD19600865005FD039 /* default.mcface in Resources */ = {isa = PBXBuildFile; fileRef = 5904CDAB19600865005FD039 /* default.mcface */; };
+		5904CDC2196031C5005FD039 /* FaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5904CDC1196031C5005FD039 /* FaceImage.swift */; };
+		5904CDC3196031C5005FD039 /* FaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5904CDC1196031C5005FD039 /* FaceImage.swift */; };
+		5920AEC41961F3C80050F1FB /* PatternWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920AEC21961F3C80050F1FB /* PatternWindow.xib */; };
+		5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920AEC31961F3C80050F1FB /* PatternWindowController.swift */; };
 		594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
 		594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
 		594C3D72194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
@@ -33,6 +37,48 @@
 			remoteGlobalIDString = 5997EB49194369A20047B05A;
 			remoteInfo = MacFace2;
 		};
+		5904CDB019601206005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
+		5904CDB519601251005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
+		5904CDB7196012BD005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
+		5904CDB919601310005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
+		5904CDBB19601491005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
+		5904CDBD19601498005FD039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
 		5997EB5F194369A30047B05A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5997EB42194369A20047B05A /* Project object */;
@@ -45,6 +91,9 @@
 /* Begin PBXFileReference section */
 		5904CDA91960078B005FD039 /* FaceDefTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDefTests.swift; sourceTree = "<group>"; };
 		5904CDAB19600865005FD039 /* default.mcface */ = {isa = PBXFileReference; lastKnownFileType = folder; path = default.mcface; sourceTree = "<group>"; };
+		5904CDC1196031C5005FD039 /* FaceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceImage.swift; sourceTree = "<group>"; };
+		5920AEC21961F3C80050F1FB /* PatternWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatternWindow.xib; sourceTree = "<group>"; };
+		5920AEC31961F3C80050F1FB /* PatternWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternWindowController.swift; sourceTree = "<group>"; };
 		594A4DEB195F0CF1001FE16D /* FaceDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDef.swift; sourceTree = "<group>"; };
 		594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MacFace2.entitlements; sourceTree = "<group>"; };
 		594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacFace2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -104,6 +153,8 @@
 		5997EB4C194369A20047B05A /* MacFace2 */ = {
 			isa = PBXGroup;
 			children = (
+				5920AEC21961F3C80050F1FB /* PatternWindow.xib */,
+				5920AEC31961F3C80050F1FB /* PatternWindowController.swift */,
 				5904CDAB19600865005FD039 /* default.mcface */,
 				594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */,
 				5997EB51194369A20047B05A /* ViewController.swift */,
@@ -117,6 +168,7 @@
 				594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */,
 				5991EB011956BE0200566B8D /* StatsHistory.swift */,
 				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
+				5904CDC1196031C5005FD039 /* FaceImage.swift */,
 			);
 			path = MacFace2;
 			sourceTree = "<group>";
@@ -182,6 +234,12 @@
 			dependencies = (
 				5997EB60194369A30047B05A /* PBXTargetDependency */,
 				5904CDAF19601206005FD039 /* PBXTargetDependency */,
+				5904CDB119601206005FD039 /* PBXTargetDependency */,
+				5904CDB619601251005FD039 /* PBXTargetDependency */,
+				5904CDB8196012BD005FD039 /* PBXTargetDependency */,
+				5904CDBA19601310005FD039 /* PBXTargetDependency */,
+				5904CDBC19601491005FD039 /* PBXTargetDependency */,
+				5904CDBE19601498005FD039 /* PBXTargetDependency */,
 			);
 			name = MacFace2Tests;
 			productName = MacFace2Tests;
@@ -235,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5920AEC41961F3C80050F1FB /* PatternWindow.xib in Resources */,
 				5904CDAC19600865005FD039 /* default.mcface in Resources */,
 				5997EB56194369A20047B05A /* Images.xcassets in Resources */,
 				5997EB59194369A20047B05A /* Main.storyboard in Resources */,
@@ -256,7 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5904CDC2196031C5005FD039 /* FaceImage.swift in Sources */,
 				5997EB54194369A20047B05A /* AppDelegate.swift in Sources */,
+				5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */,
 				5997EB52194369A20047B05A /* ViewController.swift in Sources */,
 				594C3D72194D96A700E2627C /* HostStatistics.m in Sources */,
 				5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */,
@@ -269,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5904CDC3196031C5005FD039 /* FaceImage.swift in Sources */,
 				5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */,
 				5997EB65194369A30047B05A /* HostStatistics.swift in Sources */,
 				5904CDAA1960078B005FD039 /* FaceDefTests.swift in Sources */,
@@ -285,6 +347,36 @@
 			isa = PBXTargetDependency;
 			target = 5997EB49194369A20047B05A /* MacFace2 */;
 			targetProxy = 5904CDAE19601206005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDB119601206005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDB019601206005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDB619601251005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDB519601251005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDB8196012BD005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDB7196012BD005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDBA19601310005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDB919601310005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDBC19601491005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDBB19601491005FD039 /* PBXContainerItemProxy */;
+		};
+		5904CDBE19601498005FD039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 5904CDBD19601498005FD039 /* PBXContainerItemProxy */;
 		};
 		5997EB60194369A30047B05A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -461,7 +553,7 @@
 				5997EB67194369A30047B05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5997EB68194369A30047B05A /* Build configuration list for PBXNativeTarget "MacFace2" */ = {
 			isa = XCConfigurationList;
@@ -470,7 +562,7 @@
 				5997EB6A194369A30047B05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5997EB6B194369A30047B05A /* Build configuration list for PBXNativeTarget "MacFace2Tests" */ = {
 			isa = XCConfigurationList;
@@ -479,7 +571,7 @@
 				5997EB6D194369A30047B05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

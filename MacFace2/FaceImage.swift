@@ -17,7 +17,7 @@ class FaceImage
     var activity : Int
     var pageout : Int
     var marker : MarkerSpecifier
-    var pageoutDate : NSDate
+    var pageoutDate : NSDate?
 
     init(faceDef:FaceDef)
     {
@@ -27,7 +27,7 @@ class FaceImage
         self.health = 0
         self.pageout = 0
         self.marker = MarkerSpecifier.None
-        self.pageoutDate = NSDate()
+        self.pageoutDate = nil
     }
     
     func changeFaceDef(faceDef:FaceDef)
@@ -38,8 +38,9 @@ class FaceImage
     
     func update(record:HistoryRecord, processorFactor:ProcessorFactor)
     {
-        activity = Int(1 - processorFactor.idle) / 10
-        pageout = Int(Double(record.vmStats.pageouts)*0.97) + record.pageoutDelta;
+        NSLog("\(processorFactor.idle) \(pageout) \(record.pageoutDelta)")
+        activity = Int(10 - processorFactor.idle * 10)
+        pageout = Int(Double(pageout)*0.97) + record.pageoutDelta;
         
         if (record.pageoutDelta > 0) {
             pageoutDate = NSDate()
@@ -47,13 +48,13 @@ class FaceImage
         
         if (pageout > 40) {
             health = 2;
-        } else if pageoutDate.timeIntervalSinceNow > -15.0*60 {
+        } else if pageoutDate?.timeIntervalSinceNow > -15.0*60 {
             health = 1;
         } else {
             health = 0;
         }
         
-        var marker = MarkerSpecifier.None;
+        marker = MarkerSpecifier.None;
         if record.pageoutDelta > 0 {
             marker = marker | MarkerSpecifier.Pageout
         }
