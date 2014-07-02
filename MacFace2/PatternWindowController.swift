@@ -21,8 +21,6 @@ class PatternWindowController : NSWindowController {
 
         window.movable = true
         window.movableByWindowBackground = true
-
-        window.makeKeyAndOrderFront(nil)
     }
 
     func update(record:HistoryRecord, processorFactor:ProcessorFactor)

@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statsHistory: StatsHistory!
     var updateTimer: NSTimer!
 
-    var patternWindowController : PatternWindowController!
+    var patternWindowControllers : PatternWindowController[] = PatternWindowController[]()
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         statsHistory = StatsHistory()
@@ -21,15 +21,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var path = NSBundle.mainBundle().pathForResource("default", ofType:"mcface")
         var faceDef = FaceDef(path:path)
 
-        patternWindowController = PatternWindowController(windowNibName:"PatternWindow")
-        patternWindowController.faceImage = FaceImage(faceDef:faceDef)
+        for i in (0..statsHistory.processorCount)
+        {
+            var patternWindowController = PatternWindowController(windowNibName:"PatternWindow")
+            patternWindowController.faceImage = FaceImage(faceDef:faceDef)
+            patternWindowControllers.append(patternWindowController)
+        }
         
         updateTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
             target:self, selector:Selector("updateStatus:"),
             userInfo:nil, repeats:true
         )
 
-        patternWindowController.showWindow(nil)
+        for i in (0..statsHistory.processorCount)
+        {
+            patternWindowControllers[i].window.setFrameTopLeftPoint(NSPoint(x:i * 130, y:200))
+            patternWindowControllers[i].showWindow(nil)
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
@@ -53,9 +61,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statsHistory.update()
         
         var curRecord = statsHistory.currentRecord()
-        var totalFactor = curRecord.totalFactor
 
-        patternWindowController.update(curRecord, processorFactor:totalFactor)
+        for i in (0..statsHistory.processorCount)
+        {
+            patternWindowControllers[i].update(curRecord, processorFactor:curRecord.processorFactors[i])
+        }
     }
 }
 
