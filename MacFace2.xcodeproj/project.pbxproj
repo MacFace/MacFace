@@ -22,11 +22,10 @@
 		5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
 		5991EB071956CF8100566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB061956CF8100566B8D /* StatsHistory.swift */; };
 		5997EB50194369A20047B05A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997EB4F194369A20047B05A /* main.swift */; };
-		5997EB52194369A20047B05A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997EB51194369A20047B05A /* ViewController.swift */; };
 		5997EB54194369A20047B05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997EB53194369A20047B05A /* AppDelegate.swift */; };
 		5997EB56194369A20047B05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5997EB55194369A20047B05A /* Images.xcassets */; };
-		5997EB59194369A20047B05A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5997EB57194369A20047B05A /* Main.storyboard */; };
 		5997EB65194369A30047B05A /* HostStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997EB64194369A30047B05A /* HostStatistics.swift */; };
+		59B83A9D19684CC700688DEB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B83A9C19684CC700688DEB /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,13 +104,12 @@
 		5997EB4A194369A20047B05A /* MacFace2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacFace2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5997EB4E194369A20047B05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5997EB4F194369A20047B05A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		5997EB51194369A20047B05A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5997EB53194369A20047B05A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5997EB55194369A20047B05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5997EB58194369A20047B05A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5997EB5E194369A30047B05A /* MacFace2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacFace2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5997EB63194369A30047B05A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5997EB64194369A30047B05A /* HostStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostStatistics.swift; sourceTree = "<group>"; };
+		59B83A9C19684CC700688DEB /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +155,8 @@
 				5920AEC31961F3C80050F1FB /* PatternWindowController.swift */,
 				5904CDAB19600865005FD039 /* default.mcface */,
 				594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */,
-				5997EB51194369A20047B05A /* ViewController.swift */,
 				5997EB53194369A20047B05A /* AppDelegate.swift */,
 				5997EB55194369A20047B05A /* Images.xcassets */,
-				5997EB57194369A20047B05A /* Main.storyboard */,
 				5997EB4D194369A20047B05A /* Supporting Files */,
 				594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */,
 				594C3D70194D96A700E2627C /* HostStatistics.h */,
@@ -169,6 +165,7 @@
 				5991EB011956BE0200566B8D /* StatsHistory.swift */,
 				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
 				5904CDC1196031C5005FD039 /* FaceImage.swift */,
+				59B83A9C19684CC700688DEB /* MainMenu.xib */,
 			);
 			path = MacFace2;
 			sourceTree = "<group>";
@@ -296,7 +293,7 @@
 				5920AEC41961F3C80050F1FB /* PatternWindow.xib in Resources */,
 				5904CDAC19600865005FD039 /* default.mcface in Resources */,
 				5997EB56194369A20047B05A /* Images.xcassets in Resources */,
-				5997EB59194369A20047B05A /* Main.storyboard in Resources */,
+				59B83A9D19684CC700688DEB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +315,6 @@
 				5904CDC2196031C5005FD039 /* FaceImage.swift in Sources */,
 				5997EB54194369A20047B05A /* AppDelegate.swift in Sources */,
 				5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */,
-				5997EB52194369A20047B05A /* ViewController.swift in Sources */,
 				594C3D72194D96A700E2627C /* HostStatistics.m in Sources */,
 				5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */,
 				594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */,
@@ -384,17 +380,6 @@
 			targetProxy = 5997EB5F194369A30047B05A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5997EB57194369A20047B05A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5997EB58194369A20047B05A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5997EB66194369A30047B05A /* Debug */ = {
