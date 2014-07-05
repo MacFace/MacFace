@@ -13,13 +13,12 @@ class StatsHostoryTests: XCTestCase {
     
     func testUpdate() {
         var history = StatsHistory()
-        
-        history.update()
-        
         XCTAssertEqual(history.records.count, 1)
 
         history.update()
-        
         XCTAssertEqual(history.records.count, 2)
+
+        history.update()
+        XCTAssertEqual(history.records.count, 3)
     }
 }
