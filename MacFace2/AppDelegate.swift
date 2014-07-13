@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statsHistory: StatsHistory!
     var updateTimer: NSTimer!
 
-    var patternWindowControllers : PatternWindowController[] = PatternWindowController[]()
+    var patternWindowControllers : [PatternWindowController] = [PatternWindowController]()
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         statsHistory = StatsHistory()
@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var path = NSBundle.mainBundle().pathForResource("default", ofType:"mcface")
         var faceDef = FaceDef(path:path)
 
-        for i in (0..statsHistory.processorCount)
+        for i in (0..<statsHistory.processorCount)
         {
             var patternWindowController = PatternWindowController(windowNibName:"PatternWindow")
             patternWindowController.faceImage = FaceImage(faceDef:faceDef)
@@ -33,9 +33,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             userInfo:nil, repeats:true
         )
 
-        for i in (0..statsHistory.processorCount)
+        for i in (0..<statsHistory.processorCount)
         {
-            patternWindowControllers[i].window.setFrameTopLeftPoint(NSPoint(x:i * 130, y:200))
+            patternWindowControllers[i].window.setFrameTopLeftPoint(NSPoint(x:i * 130, y:800))
             patternWindowControllers[i].showWindow(nil)
         }
     }
@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         var curRecord = statsHistory.currentRecord()
 
-        for i in (0..statsHistory.processorCount)
+        for i in (0..<statsHistory.processorCount)
         {
             patternWindowControllers[i].update(curRecord, processorFactor:curRecord.processorFactors[i])
         }

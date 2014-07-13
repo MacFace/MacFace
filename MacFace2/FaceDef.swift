@@ -34,6 +34,8 @@ struct MarkerSpecifier : RawOptionSet {
     static func fromRaw(raw: UInt) -> MarkerSpecifier? { return MarkerSpecifier(raw) }
     static func fromMask(raw: UInt) -> MarkerSpecifier { return MarkerSpecifier(raw) }
 
+    static func convertFromNilLiteral() -> MarkerSpecifier { return None; }
+    
     static var None: MarkerSpecifier  { return MarkerSpecifier(0) }
     static var Pagein: MarkerSpecifier  { return MarkerSpecifier(1 << 0) }
     static var Pageout: MarkerSpecifier { return MarkerSpecifier(1 << 1) }
@@ -102,9 +104,9 @@ class FaceDef
 
     // public properties (readonly)
     var packagePath : String
-    var parts : PartDef[]
+    var parts : [PartDef]
     var patterns : Array<Array<PatternDef>>
-    var markers : Int[]
+    var markers : [Int]
     var titlePattern : PatternDef
 
     init(path:String)

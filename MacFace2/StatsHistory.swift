@@ -37,8 +37,8 @@ class HistoryRecord {
     var totalTicks: ProcessorTicks
     var totalFactor: ProcessorFactor
     
-    var processorTicks: ProcessorTicks[]
-    var processorFactors: ProcessorFactor[]
+    var processorTicks: [ProcessorTicks]
+    var processorFactors: [ProcessorFactor]
     
     init(processorCount:Int)
     {
@@ -49,10 +49,10 @@ class HistoryRecord {
         totalTicks = ProcessorTicks()
         totalFactor = ProcessorFactor()
 
-        processorTicks = ProcessorTicks[]()
-        processorFactors = ProcessorFactor[]()
+        processorTicks = [ProcessorTicks]()
+        processorFactors = [ProcessorFactor]()
 
-        for i in 0..processorCount
+        for i in 0..<processorCount
         {
             processorTicks.append(ProcessorTicks())
             processorFactors.append(ProcessorFactor())
@@ -63,7 +63,7 @@ class HistoryRecord {
 
 class StatsHistory {
     var hostStats: HostStatistics
-    var records: HistoryRecord[]
+    var records: [HistoryRecord]
     var processorCount: Int
 
     init()
@@ -71,7 +71,7 @@ class StatsHistory {
         hostStats = HostStatistics()
         processorCount = Int(hostStats.processorCount)
 
-        records = HistoryRecord[]()
+        records = [HistoryRecord]()
         
         records.append(createRecord())
     }
@@ -86,7 +86,7 @@ class StatsHistory {
         
         record.totalFactor.update(record.totalTicks, lastTicks:lastRecord.totalTicks)
 
-        for i in 0..processorCount
+        for i in 0..<processorCount
         {
             record.processorFactors[i].update(record.processorTicks[i], lastTicks:lastRecord.processorTicks[i])
         }
