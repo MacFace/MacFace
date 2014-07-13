@@ -57,10 +57,10 @@ class HostStatisticsTests: XCTestCase {
     
     func testGetAllProcessorTicks() {
         var stats = HostStatistics()
-        var ticksList = ProcessorTicks[]()
+        var ticksList = [ProcessorTicks]()
         var i = 0;
         
-        for i in 0..stats.processorCount
+        for i in 0..<stats.processorCount
         {
             ticksList.append(ProcessorTicks())
         }

@@ -25,8 +25,8 @@ class FaceDefTests: XCTestCase {
         var path = NSBundle.mainBundle().pathForResource("default", ofType:"mcface")
         var faceDef = FaceDef(path:path)
         
-        for row in (0..FACE_ROWMAX) {
-            for col in (0..FACE_COLMAX) {
+        for row in (0..<FACE_ROWMAX) {
+            for col in (0..<FACE_COLMAX) {
                 let marker1 = MarkerSpecifier.Pagein
                 let image = faceDef.imageOf(row, col:col, marker:marker1)
                 
