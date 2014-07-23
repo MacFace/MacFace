@@ -25,6 +25,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         {
             var patternWindowController = PatternWindowController(windowNibName:"PatternWindow")
             patternWindowController.faceImage = FaceImage(faceDef:faceDef)
+            patternWindowController.window.title = "Processor \(i+1)"
+            patternWindowController.window.setFrameAutosaveName("processor\(i+1)")
+            patternWindowController.label.stringValue = patternWindowController.window.title
+            
+            patternWindowController.alphaValue = 0.5
+            patternWindowController.fixedWindow = false
+
             patternWindowControllers.append(patternWindowController)
         }
         

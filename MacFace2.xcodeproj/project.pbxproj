@@ -18,6 +18,7 @@
 		594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
 		594C3D72194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
 		594C3D73194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
+		5990414F197A771200BCAA3D /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990414E197A771200BCAA3D /* PatternView.swift */; };
 		5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
 		5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
 		5991EB071956CF8100566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB061956CF8100566B8D /* StatsHistory.swift */; };
@@ -99,6 +100,7 @@
 		594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacFace2Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		594C3D70194D96A700E2627C /* HostStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostStatistics.h; sourceTree = "<group>"; };
 		594C3D71194D96A700E2627C /* HostStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostStatistics.m; sourceTree = "<group>"; };
+		5990414E197A771200BCAA3D /* PatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		5991EB011956BE0200566B8D /* StatsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHistory.swift; sourceTree = "<group>"; };
 		5991EB061956CF8100566B8D /* StatsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHistory.swift; sourceTree = "<group>"; };
 		5997EB4A194369A20047B05A /* MacFace2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacFace2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
 				5904CDC1196031C5005FD039 /* FaceImage.swift */,
 				59B83A9C19684CC700688DEB /* MainMenu.xib */,
+				5990414E197A771200BCAA3D /* PatternView.swift */,
 			);
 			path = MacFace2;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */,
 				594C3D72194D96A700E2627C /* HostStatistics.m in Sources */,
 				5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */,
+				5990414F197A771200BCAA3D /* PatternView.swift in Sources */,
 				594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */,
 				5997EB50194369A20047B05A /* main.swift in Sources */,
 			);
