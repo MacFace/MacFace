@@ -8,14 +8,14 @@
 
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+public class AppDelegate: NSObject, NSApplicationDelegate {
     
     var statsHistory: StatsHistory!
     var updateTimer: NSTimer!
 
     var patternWindowControllers : [PatternWindowController] = [PatternWindowController]()
 
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
+    public func applicationDidFinishLaunching(aNotification: NSNotification?) {
         statsHistory = StatsHistory()
         
         var path = NSBundle.mainBundle().pathForResource("default", ofType:"mcface")
@@ -47,11 +47,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(aNotification: NSNotification?) {
+    public func applicationWillTerminate(aNotification: NSNotification?) {
         updateTimer.invalidate()
     }
 
-    func applicationDidChangeOcclusionState(aNotification: NSNotification)
+    public func applicationDidChangeOcclusionState(aNotification: NSNotification)
     {
         if NSApp.occlusionState & NSApplicationOcclusionState.Visible {
             // the app is visible; continue doing work
@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func updateStatus(timer:NSTimer)
+    public func updateStatus(timer:NSTimer)
     {
         var history = statsHistory as StatsHistory
         statsHistory.update()

@@ -9,18 +9,18 @@
 import Foundation
 import Cocoa
 
-class PatternView : NSView
+public class PatternView : NSView
 {
     var faceImage : FaceImage?
 
-    override func drawRect(dirtyRect: NSRect)
+    public override func drawRect(dirtyRect: NSRect)
     {
         if let f = faceImage {
             f.image.drawAtPoint(NSZeroPoint, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: CGFloat(1.0))
         }
     }
 
-    override func mouseUp(theEvent: NSEvent!)
+    public override func mouseUp(theEvent: NSEvent!)
     {
         if theEvent.clickCount == 2 {
             window.miniaturize(nil)

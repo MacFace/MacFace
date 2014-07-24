@@ -8,11 +8,11 @@
 
 import Foundation
 
-class ProcessorFactor {
-    var user: Float = 0.0
-    var system: Float = 0.0
-    var idle: Float = 0.0
-    var nice: Float = 0.0
+public class ProcessorFactor {
+    public var user: Float = 0.0
+    public var system: Float = 0.0
+    public var idle: Float = 0.0
+    public var nice: Float = 0.0
 
     func update(ticks:ProcessorTicks, lastTicks:ProcessorTicks)
     {
@@ -29,18 +29,18 @@ class ProcessorFactor {
     }
 }
 
-class HistoryRecord {
-    var vmStats: VMStatistics
-    var pageinDelta: Int
-    var pageoutDelta: Int
+public class HistoryRecord {
+    public var vmStats: VMStatistics
+    public var pageinDelta: Int
+    public var pageoutDelta: Int
 
-    var totalTicks: ProcessorTicks
-    var totalFactor: ProcessorFactor
+    public var totalTicks: ProcessorTicks
+    public var totalFactor: ProcessorFactor
     
-    var processorTicks: [ProcessorTicks]
-    var processorFactors: [ProcessorFactor]
+    public var processorTicks: [ProcessorTicks]
+    public var processorFactors: [ProcessorFactor]
     
-    init(processorCount:Int)
+    public init(processorCount:Int)
     {
         vmStats = VMStatistics()
         pageinDelta = 0
@@ -61,12 +61,12 @@ class HistoryRecord {
 }
 
 
-class StatsHistory {
+public class StatsHistory {
     var hostStats: HostStatistics
-    var records: [HistoryRecord]
-    var processorCount: Int
+    public var records: [HistoryRecord]
+    public var processorCount: Int
 
-    init()
+    public init()
     {
         hostStats = HostStatistics()
         processorCount = Int(hostStats.processorCount)
@@ -76,7 +76,7 @@ class StatsHistory {
         records.append(createRecord())
     }
 
-    func update()
+    public func update()
     {
         var record = createRecord()
         var lastRecord = currentRecord()
@@ -94,7 +94,7 @@ class StatsHistory {
         records.append(record)
     }
 
-    func createRecord() -> HistoryRecord
+    public func createRecord() -> HistoryRecord
     {
         var record = HistoryRecord(processorCount: processorCount)
     
@@ -105,7 +105,7 @@ class StatsHistory {
         return record
     }
 
-    func currentRecord() -> HistoryRecord
+    public func currentRecord() -> HistoryRecord
     {
         return records[records.count - 1]
     }

@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class FaceImage
+public class FaceImage
 {
     var faceDef : FaceDef
     var image : NSImage
@@ -19,7 +19,7 @@ class FaceImage
     var marker : MarkerSpecifier
     var pageoutDate : NSDate?
 
-    init(faceDef:FaceDef)
+    public init(faceDef:FaceDef)
     {
         self.faceDef = faceDef
         self.image = NSImage(size:faceDef.imageSize)
@@ -30,13 +30,13 @@ class FaceImage
         self.pageoutDate = nil
     }
     
-    func changeFaceDef(faceDef:FaceDef)
+    public func changeFaceDef(faceDef:FaceDef)
     {
         self.faceDef = faceDef
         updateImage()
     }
     
-    func update(record:HistoryRecord, processorFactor:ProcessorFactor)
+    public func update(record:HistoryRecord, processorFactor:ProcessorFactor)
     {
         NSLog("\(processorFactor.idle) \(pageout) \(record.pageoutDelta)")
         activity = Int(10 - processorFactor.idle * 10)

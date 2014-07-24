@@ -9,13 +9,13 @@
 import Foundation
 import Cocoa
 
-class PartDef
+public class PartDef
 {
-    var filename : String
-    var image : NSImage
-    var pos : NSPoint
+    public var filename : String
+    public var image : NSImage
+    public var pos : NSPoint
 
-    init(filename:String, image:NSImage, pos:NSPoint)
+    public init(filename:String, image:NSImage, pos:NSPoint)
     {
         self.filename = filename
         self.image = image
@@ -25,31 +25,31 @@ class PartDef
 
 typealias PatternDef = Array<Int>
 
-struct MarkerSpecifier : RawOptionSet {
+public struct MarkerSpecifier : RawOptionSet {
     var value: UInt = 0
     init(_ value: UInt) { self.value = value }
-    func toRaw() -> UInt { return self.value }
-    func getLogicValue() -> Bool { return self.value != 0 }
+    public func toRaw() -> UInt { return self.value }
+    public func getLogicValue() -> Bool { return self.value != 0 }
 
-    static func fromRaw(raw: UInt) -> MarkerSpecifier? { return MarkerSpecifier(raw) }
-    static func fromMask(raw: UInt) -> MarkerSpecifier { return MarkerSpecifier(raw) }
+    public static func fromRaw(raw: UInt) -> MarkerSpecifier? { return MarkerSpecifier(raw) }
+    public static func fromMask(raw: UInt) -> MarkerSpecifier { return MarkerSpecifier(raw) }
 
-    static func convertFromNilLiteral() -> MarkerSpecifier { return None; }
+    public static func convertFromNilLiteral() -> MarkerSpecifier { return None; }
     
     static var None: MarkerSpecifier  { return MarkerSpecifier(0) }
     static var Pagein: MarkerSpecifier  { return MarkerSpecifier(1 << 0) }
     static var Pageout: MarkerSpecifier { return MarkerSpecifier(1 << 1) }
 }
 
-class FaceDefInfo
+public class FaceDefInfo
 {
-    var title : String
-    var author : String
-    var version : String
-    var siteURL : String
-    var titleImage : NSImage
+    public var title : String
+    public var author : String
+    public var version : String
+    public var siteURL : String
+    public var titleImage : NSImage
 
-    init(title:String, author:String, version:String, siteURL:String, titleImage:NSImage)
+    public init(title:String, author:String, version:String, siteURL:String, titleImage:NSImage)
     {
         self.title = title
         self.author = author
@@ -79,7 +79,7 @@ let FACE_PART_IMAGE		= "filename"
 let FACE_PART_POSX		= "pos x"
 let FACE_PART_POSY		= "pos y"
 
-class FaceDef
+public class FaceDef
 {
 
 
@@ -103,13 +103,13 @@ class FaceDef
 */
 
     // public properties (readonly)
-    var packagePath : String
+    public var packagePath : String
     var parts : [PartDef]
     var patterns : Array<Array<PatternDef>>
     var markers : [Int]
     var titlePattern : PatternDef
 
-    init(path:String)
+    public init(path:String)
     {
         var plistPath = path.stringByAppendingPathComponent("faceDef.plist")
         var definition = NSDictionary(contentsOfFile: plistPath)
@@ -121,8 +121,8 @@ class FaceDef
         if let partArray = definition.objectForKey(FACE_INFO_PARTS) as? Array<NSDictionary> {
             for partDefDict in partArray {
                 let filename = partDefDict.objectForKey(FACE_PART_IMAGE) as String;
-                let x = partDefDict.objectForKey(FACE_PART_POSX).doubleValue
-                let y = partDefDict.objectForKey(FACE_PART_POSY).doubleValue
+                let x = CGFloat(partDefDict.objectForKey(FACE_PART_POSX).doubleValue)
+                let y = CGFloat(partDefDict.objectForKey(FACE_PART_POSY).doubleValue)
 
                 let imagePath = path.stringByAppendingPathComponent(filename);
                 let image = NSImage(contentsOfFile: imagePath)
@@ -204,7 +204,7 @@ class FaceDef
     let imageSize = NSSize(width:128, height:128)
     let imageRect = NSRect(x:0, y:0, width:128, height:128)
     
-    func imageOf(row:Int, col:Int, marker:MarkerSpecifier) -> NSImage
+    public func imageOf(row:Int, col:Int, marker:MarkerSpecifier) -> NSImage
     {
         var image = NSImage(size: imageSize)
         image.lockFocus()
@@ -213,7 +213,7 @@ class FaceDef
         return image
     }
 
-    func drawImage(row:Int, col:Int, marker:MarkerSpecifier, point:NSPoint)
+    public func drawImage(row:Int, col:Int, marker:MarkerSpecifier, point:NSPoint)
     {
         for part in patterns[row][col] {
             drawPart(parts[part], point: point)
@@ -234,7 +234,7 @@ class FaceDef
         part.image.drawAtPoint(pos, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: CGFloat(1.0))
     }
 
-    func dumpPattern(path:String)
+    public func dumpPattern(path:String)
     {
         var rows = parts.count / FACE_COLMAX + 1;
         var patternSize = self.imageSize

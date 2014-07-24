@@ -9,11 +9,11 @@
 import Foundation
 import Cocoa
 
-class PatternWindowController : NSWindowController {
-    @IBOutlet var patternView : PatternView
-    @IBOutlet var label : NSTextField
+public class PatternWindowController : NSWindowController {
+    @IBOutlet weak var patternView : PatternView! = nil
+    @IBOutlet weak var label : NSTextField! = nil
 
-    var faceImage : FaceImage? {
+    public var faceImage : FaceImage? {
         didSet {
             if let view = patternView {
                 view.faceImage = faceImage
@@ -21,7 +21,7 @@ class PatternWindowController : NSWindowController {
         }
     }
 
-    var fixedWindow : Bool {
+    public var fixedWindow : Bool {
     get {
         return window.ignoresMouseEvents
     }
@@ -35,7 +35,7 @@ class PatternWindowController : NSWindowController {
     }
     }
     
-    var alphaValue : CGFloat {
+    public var alphaValue : CGFloat {
     get {
         return window.alphaValue
     }
@@ -44,7 +44,7 @@ class PatternWindowController : NSWindowController {
     }
     }
         
-    override func windowDidLoad()
+    public override func windowDidLoad()
     {
         //window.styleMask = NSBorderlessWindowMask
         window.backgroundColor = NSColor.clearColor()
@@ -56,12 +56,12 @@ class PatternWindowController : NSWindowController {
         patternView.faceImage = faceImage
     }
 
-    func minimizeWindow()
+    public func minimizeWindow()
     {
         window.miniaturize(nil)
     }
     
-    func update(record:HistoryRecord, processorFactor:ProcessorFactor)
+    public func update(record:HistoryRecord, processorFactor:ProcessorFactor)
     {
         if let face = faceImage {
             face.update(record, processorFactor:processorFactor)
