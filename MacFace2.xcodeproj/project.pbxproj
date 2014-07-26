@@ -16,8 +16,8 @@
 		5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920AEC31961F3C80050F1FB /* PatternWindowController.swift */; };
 		594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
 		594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A4DEB195F0CF1001FE16D /* FaceDef.swift */; };
-		594C3D72194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
-		594C3D73194D96A700E2627C /* HostStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C3D71194D96A700E2627C /* HostStatistics.m */; };
+		596BA87D1983ADD000E8CBD6 /* HostStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BA87C1983ADD000E8CBD6 /* HostStatistics.swift */; };
+		596BA87E1983ADD000E8CBD6 /* HostStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BA87C1983ADD000E8CBD6 /* HostStatistics.swift */; };
 		5990414F197A771200BCAA3D /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990414E197A771200BCAA3D /* PatternView.swift */; };
 		5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
 		5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991EB011956BE0200566B8D /* StatsHistory.swift */; };
@@ -97,9 +97,7 @@
 		594A4DEB195F0CF1001FE16D /* FaceDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDef.swift; sourceTree = "<group>"; };
 		594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MacFace2.entitlements; sourceTree = "<group>"; };
 		594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacFace2-Bridging-Header.h"; sourceTree = "<group>"; };
-		594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacFace2Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		594C3D70194D96A700E2627C /* HostStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostStatistics.h; sourceTree = "<group>"; };
-		594C3D71194D96A700E2627C /* HostStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostStatistics.m; sourceTree = "<group>"; };
+		596BA87C1983ADD000E8CBD6 /* HostStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostStatistics.swift; sourceTree = "<group>"; };
 		5990414E197A771200BCAA3D /* PatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		5991EB011956BE0200566B8D /* StatsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHistory.swift; sourceTree = "<group>"; };
 		5991EB061956CF8100566B8D /* StatsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHistory.swift; sourceTree = "<group>"; };
@@ -161,14 +159,12 @@
 				5997EB55194369A20047B05A /* Images.xcassets */,
 				5997EB4D194369A20047B05A /* Supporting Files */,
 				594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */,
-				594C3D70194D96A700E2627C /* HostStatistics.h */,
-				594C3D71194D96A700E2627C /* HostStatistics.m */,
-				594C3D6F194D96A600E2627C /* MacFace2Tests-Bridging-Header.h */,
 				5991EB011956BE0200566B8D /* StatsHistory.swift */,
 				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
 				5904CDC1196031C5005FD039 /* FaceImage.swift */,
 				59B83A9C19684CC700688DEB /* MainMenu.xib */,
 				5990414E197A771200BCAA3D /* PatternView.swift */,
+				596BA87C1983ADD000E8CBD6 /* HostStatistics.swift */,
 			);
 			path = MacFace2;
 			sourceTree = "<group>";
@@ -316,9 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5904CDC2196031C5005FD039 /* FaceImage.swift in Sources */,
+				596BA87D1983ADD000E8CBD6 /* HostStatistics.swift in Sources */,
 				5997EB54194369A20047B05A /* AppDelegate.swift in Sources */,
 				5920AEC51961F3C80050F1FB /* PatternWindowController.swift in Sources */,
-				594C3D72194D96A700E2627C /* HostStatistics.m in Sources */,
 				5991EB021956BE0200566B8D /* StatsHistory.swift in Sources */,
 				5990414F197A771200BCAA3D /* PatternView.swift in Sources */,
 				594A4DEC195F0CF1001FE16D /* FaceDef.swift in Sources */,
@@ -330,13 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596BA87E1983ADD000E8CBD6 /* HostStatistics.swift in Sources */,
 				5904CDC3196031C5005FD039 /* FaceImage.swift in Sources */,
 				5991EB031956BE0200566B8D /* StatsHistory.swift in Sources */,
 				5997EB65194369A30047B05A /* HostStatistics.swift in Sources */,
 				5904CDAA1960078B005FD039 /* FaceDefTests.swift in Sources */,
 				594A4DED195F0CF1001FE16D /* FaceDef.swift in Sources */,
 				5991EB071956CF8100566B8D /* StatsHistory.swift in Sources */,
-				594C3D73194D96A700E2627C /* HostStatistics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,8 +467,8 @@
 				INFOPLIST_FILE = MacFace2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "MacFace2/MacFace2-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -484,8 +480,8 @@
 				INFOPLIST_FILE = MacFace2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "MacFace2/MacFace2-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
