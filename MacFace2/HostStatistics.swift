@@ -42,9 +42,9 @@ public class HostStatistics
         self.hostPort = mach_host_self()
         
         var buffer = UnsafePointer<host_basic_info>.alloc(1)
-        var buffer_count = mach_msg_type_number_t(sizeof(host_basic_info))
-        var ptr = host_info_t(buffer)
+        var buffer_count = mach_msg_type_number_t(sizeof(host_basic_info) / sizeof(integer_t))
 
+        var ptr = host_info_t(buffer)
         result = host_info(hostPort, HOST_BASIC_INFO, ptr, &buffer_count)
 
         var basic_info = buffer.memory
@@ -63,9 +63,9 @@ public class HostStatistics
         var result : kern_return_t = 0
 
         var buffer = UnsafePointer<vm_statistics_data_t>.alloc(1)
-        var buffer_count = mach_msg_type_number_t(sizeof(vm_statistics_data_t))
+        var buffer_count = mach_msg_type_number_t(sizeof(vm_statistics_data_t) / sizeof(integer_t))
+
         var ptr = host_info_t(buffer)
-        
         result = host_statistics(hostPort, HOST_VM_INFO, ptr, &buffer_count)
 
         var vm_stat = buffer.memory
@@ -85,10 +85,11 @@ public class HostStatistics
     {
         var result : kern_return_t = 0
         
-        var buffer = host_info_t.alloc(Int(HOST_INFO_MAX))
-        var buffer_count = mach_msg_type_number_t(HOST_INFO_MAX)
+        var buffer = UnsafePointer<host_cpu_load_info>.alloc(1)
+        var buffer_count = mach_msg_type_number_t(sizeof(host_cpu_load_info) / sizeof(integer_t))
 
-        result = host_statistics(hostPort, HOST_CPU_LOAD_INFO, buffer, &buffer_count)
+        var ptr = host_info_t(buffer)
+        result = host_statistics(hostPort, HOST_CPU_LOAD_INFO, ptr, &buffer_count)
 
         var load_info = UnsafePointer<host_cpu_load_info>(buffer).memory
 
@@ -119,14 +120,14 @@ public class HostStatistics
         var cpu_load_info_ptr = UnsafePointer<processor_cpu_load_info>(buffer)
         for (var i = 0; i < Int(cpu_count); i++)
         {
-            var cpu_load_info = cpu_load_info_ptr.memory
+            var cpu_load_info = cpu_load_info_ptr[i]
             ticksList[i].user   = cpu_load_info.cpu_ticks.0
             ticksList[i].system = cpu_load_info.cpu_ticks.1
             ticksList[i].idle   = cpu_load_info.cpu_ticks.2
             ticksList[i].nice   = cpu_load_info.cpu_ticks.3
-            cpu_load_info_ptr = cpu_load_info_ptr.successor()
         }
 
+        // TODO: アドレス値の正式な取得方法があればそれに差し替える。なければアドレス値を返すCの関数を作る。
         var addr = COpaquePointer(buffer).encode()[0]
         result = vm_deallocate(mach_thread_self(), vm_address_t(addr), vm_size_t(buffer_count))
     }

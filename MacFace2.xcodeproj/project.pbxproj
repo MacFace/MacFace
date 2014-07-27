@@ -96,7 +96,6 @@
 		5920AEC31961F3C80050F1FB /* PatternWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternWindowController.swift; sourceTree = "<group>"; };
 		594A4DEB195F0CF1001FE16D /* FaceDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDef.swift; sourceTree = "<group>"; };
 		594BFD6F1957204F0063BAD1 /* MacFace2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MacFace2.entitlements; sourceTree = "<group>"; };
-		594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacFace2-Bridging-Header.h"; sourceTree = "<group>"; };
 		596BA87C1983ADD000E8CBD6 /* HostStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostStatistics.swift; sourceTree = "<group>"; };
 		5990414E197A771200BCAA3D /* PatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		5991EB011956BE0200566B8D /* StatsHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHistory.swift; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 				5997EB53194369A20047B05A /* AppDelegate.swift */,
 				5997EB55194369A20047B05A /* Images.xcassets */,
 				5997EB4D194369A20047B05A /* Supporting Files */,
-				594C3D6E194D8DE800E2627C /* MacFace2-Bridging-Header.h */,
 				5991EB011956BE0200566B8D /* StatsHistory.swift */,
 				594A4DEB195F0CF1001FE16D /* FaceDef.swift */,
 				5904CDC1196031C5005FD039 /* FaceImage.swift */,
