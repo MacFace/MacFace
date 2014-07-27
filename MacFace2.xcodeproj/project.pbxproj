@@ -79,6 +79,13 @@
 			remoteGlobalIDString = 5997EB49194369A20047B05A;
 			remoteInfo = MacFace2;
 		};
+		596BA87F1984FC9B00E8CBD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5997EB42194369A20047B05A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5997EB49194369A20047B05A;
+			remoteInfo = MacFace2;
+		};
 		5997EB5F194369A30047B05A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5997EB42194369A20047B05A /* Project object */;
@@ -234,6 +241,7 @@
 				5904CDBA19601310005FD039 /* PBXTargetDependency */,
 				5904CDBC19601491005FD039 /* PBXTargetDependency */,
 				5904CDBE19601498005FD039 /* PBXTargetDependency */,
+				596BA8801984FC9B00E8CBD6 /* PBXTargetDependency */,
 			);
 			name = MacFace2Tests;
 			productName = MacFace2Tests;
@@ -372,6 +380,11 @@
 			target = 5997EB49194369A20047B05A /* MacFace2 */;
 			targetProxy = 5904CDBD19601498005FD039 /* PBXContainerItemProxy */;
 		};
+		596BA8801984FC9B00E8CBD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5997EB49194369A20047B05A /* MacFace2 */;
+			targetProxy = 596BA87F1984FC9B00E8CBD6 /* PBXContainerItemProxy */;
+		};
 		5997EB60194369A30047B05A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5997EB49194369A20047B05A /* MacFace2 */;
@@ -501,7 +514,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MacFace2/MacFace2Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -521,7 +533,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MacFace2/MacFace2Tests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
