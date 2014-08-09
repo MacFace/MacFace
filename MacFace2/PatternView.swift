@@ -23,7 +23,7 @@ public class PatternView : NSView
     public override func mouseUp(theEvent: NSEvent!)
     {
         if theEvent.clickCount == 2 {
-            window.miniaturize(nil)
+            window?.miniaturize(nil)
         }
     }
 }

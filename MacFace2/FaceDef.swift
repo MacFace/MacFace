@@ -25,11 +25,11 @@ public class PartDef
 
 typealias PatternDef = Array<Int>
 
-public struct MarkerSpecifier : RawOptionSet {
+public struct MarkerSpecifier : RawOptionSetType {
     var value: UInt = 0
     init(_ value: UInt) { self.value = value }
     public func toRaw() -> UInt { return self.value }
-    public func getLogicValue() -> Bool { return self.value != 0 }
+    public var boolValue: Bool { get { return self.value != 0 } }
 
     public static func fromRaw(raw: UInt) -> MarkerSpecifier? { return MarkerSpecifier(raw) }
     public static func fromMask(raw: UInt) -> MarkerSpecifier { return MarkerSpecifier(raw) }

@@ -10,8 +10,8 @@ import Foundation
 import Cocoa
 
 public class PatternWindowController : NSWindowController {
-    @IBOutlet weak var patternView : PatternView! = nil
-    @IBOutlet weak var label : NSTextField! = nil
+    @IBOutlet weak var patternView : PatternView!
+    @IBOutlet weak var label : NSTextField!
 
     public var faceImage : FaceImage? {
         didSet {

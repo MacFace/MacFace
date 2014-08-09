@@ -41,9 +41,9 @@ public class HostStatistics
         
         self.hostPort = mach_host_self()
         
-        var buffer = UnsafePointer<host_basic_info>.alloc(1)
+        var buffer = UnsafeMutablePointer<host_basic_info>.alloc(1)
         var buffer_count = mach_msg_type_number_t(sizeof(host_basic_info) / sizeof(integer_t))
-
+        
         var ptr = host_info_t(buffer)
         result = host_info(hostPort, HOST_BASIC_INFO, ptr, &buffer_count)
 
@@ -62,7 +62,7 @@ public class HostStatistics
     {
         var result : kern_return_t = 0
 
-        var buffer = UnsafePointer<vm_statistics_data_t>.alloc(1)
+        var buffer = UnsafeMutablePointer<vm_statistics_data_t>.alloc(1)
         var buffer_count = mach_msg_type_number_t(sizeof(vm_statistics_data_t) / sizeof(integer_t))
 
         var ptr = host_info_t(buffer)
@@ -85,7 +85,7 @@ public class HostStatistics
     {
         var result : kern_return_t = 0
         
-        var buffer = UnsafePointer<host_cpu_load_info>.alloc(1)
+        var buffer = UnsafeMutablePointer<host_cpu_load_info>.alloc(1)
         var buffer_count = mach_msg_type_number_t(sizeof(host_cpu_load_info) / sizeof(integer_t))
 
         var ptr = host_info_t(buffer)
